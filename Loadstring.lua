@@ -37,8 +37,10 @@
 			- Yueliang 5 (Lua compiler in Lua) - http://yueliang.luaforge.net/
 			- Moonshine (improved version of Yeuliang) - https://github.com/gamesys/moonshine
 ]]
-local compile = loadstring(game:HttpGet("https://raw.githubusercontent.com/nahboi/vLua/main/Yueliang.lua"))()
-local createExecutable = loadstring(game:HttpGet("https://raw.githubusercontent.com/nahboi/vLua/main/FiOne.lua"))()
+
+local HttpService = game:GetService("HttpService")
+local compile = loadstring(HttpService:GetAsync("https://raw.githubusercontent.com/nahboi/vLua/main/Yueliang.lua"))()
+local createExecutable = loadstring(HttpService:GetAsync("https://raw.githubusercontent.com/nahboi/vLua/main/FiOne.lua"))()
 getfenv().script = nil
 
 return function(source, env)
